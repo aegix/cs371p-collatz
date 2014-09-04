@@ -11,6 +11,7 @@
 #include <cassert>  // assert
 #include <iostream> // endl, istream, ostream
 #include <utility>  // make_pair, pair
+#include <unordered_map> //hashmap
 
 #include "Collatz.h"
 
@@ -32,8 +33,25 @@ std::pair<int, int> collatz_read (std::istream& r) {
 // ------------
 
 int collatz_eval (int i, int j) {
-    // <your code>
-    return 20;}
+
+    using namespace std;
+    //unordered_map<int,int> cache;
+    int largest = 0;
+    while(i<=j){
+	int temp = i;
+	int cycles = 1;
+	while(temp > 1){
+	    if((temp%2)==0)
+	    	temp = (temp/2);
+	    else
+		temp = (temp*3)+1;
+	    cycles++;
+	}
+	if(cycles>largest)
+	    largest = cycles;
+	i++;
+    }
+    return largest;}
 
 // -------------
 // collatz_print
