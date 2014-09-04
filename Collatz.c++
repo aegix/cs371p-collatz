@@ -35,6 +35,7 @@ std::pair<int, int> collatz_read (std::istream& r) {
 int collatz_eval (int i, int j) {
 
     using namespace std;
+    bool cache_on = true;
     int start = i;
     int largest = 0;
     int* cache = new int[j-i+1];// = {};
@@ -43,7 +44,9 @@ int collatz_eval (int i, int j) {
 	int temp = i;
 	int cycles = 1;
 	while(temp > 1){
-	    if(cache[temp-start] != 0){
+	    if(cache_on){
+	    if(cache[temp-start] != 0 && temp <=j){
+		cout << "hit" << temp << endl;
 		temp = 1;
 		cycles += cache[temp-start] - 1;
 	    }
@@ -54,9 +57,20 @@ int collatz_eval (int i, int j) {
 	    else{
 		temp = (temp*3)+1;
 	   	cycles++;
+	    }}
+	    else{
+	    if((temp%2)==0){
+                temp = (temp/2);
+                cycles++;
+            }
+            else{
+                temp = (temp*3)+1;
+                cycles++;
+
+		}
 	    }
 	}
-	cache[original] = cycles;
+	if(cache_on) cache[original-start] = cycles;
 	cout << cycles;
 	cout << endl;
 	if(cycles>largest)
