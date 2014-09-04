@@ -35,22 +35,35 @@ std::pair<int, int> collatz_read (std::istream& r) {
 int collatz_eval (int i, int j) {
 
     using namespace std;
-    //unordered_map<int,int> cache;
+    int start = i;
     int largest = 0;
+    int* cache = new int[j-i+1];// = {};
     while(i<=j){
+	int original = i;
 	int temp = i;
 	int cycles = 1;
 	while(temp > 1){
-	    if((temp%2)==0)
+	    if(cache[temp-start] != 0){
+		temp = 1;
+		cycles += cache[temp-start] - 1;
+	    }
+	    else if((temp%2)==0){
 	    	temp = (temp/2);
-	    else
+	 	cycles++;
+	    }
+	    else{
 		temp = (temp*3)+1;
-	    cycles++;
+	   	cycles++;
+	    }
 	}
+	cache[original] = cycles;
+	cout << cycles;
+	cout << endl;
 	if(cycles>largest)
 	    largest = cycles;
 	i++;
     }
+    //delete [] cache;
     return largest;}
 
 // -------------
