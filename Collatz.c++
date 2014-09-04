@@ -39,7 +39,7 @@ int collatz_eval (int i, int j) {
     bool prints = true;
     int start = i;
     int largest = 0;
-    int* cache = new int[j-i+1];// = {};
+    int* cache = new int[j-i+1]();// = {};
     while(i<=j){
 	int original = i;
 	int temp = i;
