@@ -32,12 +32,12 @@ std::pair<int, int> collatz_read (std::istream& r) {
 // collatz_eval
 // ------------
 
-int collatz_eval (int i, int j) {
+int collatz_eval (int i, int j, std::unordered_map<int,int>& map_cache) {
 
     using namespace std;
-    unordered_map<int,int> map_cache;
+    //unordered_map<int,int> map_cache;
     bool cache_on = true;
-    bool prints = true;
+    bool prints = false;
     int start = i;
     int largest = 0;
     while(i<=j){
@@ -93,11 +93,13 @@ void collatz_print (std::ostream& w, int i, int j, int v) {
 // -------------
 
 void collatz_solve (std::istream& r, std::ostream& w) {
+    using namespace std;
+    unordered_map<int,int> cache;
     while (true) {
         const std::pair<int, int> p = collatz_read(r);
         if (p == std::make_pair(0, 0))
             return;
         const int i = p.first;
         const int j = p.second;
-        const int v = collatz_eval(i, j);
+        const int v = collatz_eval(i, j,cache);
         collatz_print(w, i, j, v);}}
