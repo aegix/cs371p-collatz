@@ -71,6 +71,8 @@ int recurse_range(int i, int j, std::unordered_map<int,int>& cache) {
 	i = j;
 	j = temp;
     }
+    int start = j/2 +1;
+    if(start<i) start = i;
     //cout<<start << " " << j << endl;
     while(start<=j){
 	int temp = recurse_eval(start,cache);
