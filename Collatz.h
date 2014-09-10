@@ -13,6 +13,13 @@
 
 #include <iostream> // istream, ostream
 #include <utility>  // pair
+#include <unordered_map> //hashmap
+
+
+int recurse_eval (int i, std::unordered_map<int,int>& cache);
+
+
+int recurse_range(int i, int j, std::unordered_map<int,int>& cache);
 
 // ------------
 // collatz_read
@@ -34,7 +41,7 @@ std::pair<int, int> collatz_read (std::istream& r);
  * @param j the end       of the range, inclusive
  * @return the max cycle length of the range [i, j]
  */
-int collatz_eval (int i, int j);
+int collatz_eval (int i, int j,std::unordered_map<int,int>& map_cache);
 
 // -------------
 // collatz_print
