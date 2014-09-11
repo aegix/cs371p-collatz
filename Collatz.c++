@@ -33,50 +33,42 @@ std::pair<int, int> collatz_read (std::istream& r) {
 // recurse_eval
 // ------------
 
-int recurse_eval (int i, std::unordered_map<int,int>& cache){
+int recurse_eval (int i, std::unordered_map<int,int>& cache){ //do collatz recursively to try to get a higher quality lazy cache
     using namespace std;
-    //cout<<"recursive call for " << i << endl;
     int temp = i;
     int cycles = 1;
     if(temp>1){
-	if(cache[temp]&&cache[temp]!=-1){
-	    //cout<<"cache hit for "<<temp<<endl;
+	if(cache[temp]){ //Cache Hit
    	    return cache[temp];
 	}
         else if((temp%2)==0){
             temp = (temp/2);
-            cycles+=recurse_eval(temp, cache);
+            cycles+=recurse_eval(temp, cache); //recursive step
         }
         else{
             temp = (temp*3)+1;
-	    if(temp<i){ 
-		cout << i << endl;
-		assert(temp>i);
-	    }
-            cycles+=recurse_eval(temp, cache);
+            cycles+=recurse_eval(temp, cache); //alternate recursive step
         }
     }
-    cache[i] = cycles;
-    //cout << "return " << cycles << " for "<< i << endl;
+    cache[i] = cycles; //store in cache
     return cycles;
 }
 
 
-int recurse_range(int i, int j, std::unordered_map<int,int>& cache) {
+int recurse_range(int i, int j, std::unordered_map<int,int>& cache) {//harness to run recurse_eval in a range
 
     using namespace std;
     int largest = 0;
     if(j<i){
-	int temp = i;
-	i = j;
-	j = temp;
+	    int temp = i;
+	    i = j;
+	    j = temp;
     }
     int start = j/2 +1;
     if(start<i) start = i;
-    //cout<<start << " " << j << endl;
     while(start<=j){
-	int temp = recurse_eval(start,cache);
-	if(temp>largest)
+        int temp = recurse_eval(start,cache);
+	    if(temp>largest)
 	    largest = temp;
 	start++;
     }
@@ -88,18 +80,18 @@ int recurse_range(int i, int j, std::unordered_map<int,int>& cache) {
 // collatz_eval
 // ------------
 
-int collatz_eval (int i, int j, std::unordered_map<int,int>& map_cache) {
+int collatz_eval (int i, int j, std::unordered_map<int,int>& map_cache) { //reference to map to make the cache persistent between calls
 
     using namespace std;
-    bool cache_on = true;
-    bool prints = false;
+    bool cache_on = true;//Added switch for cache
+    bool prints = false; //Added switch for debug print statements
     int start = i;
     int largest = 0;
     if(j<i){
-	int temp;
-	temp = i;
-	i = j;
-	j = temp;
+	    int temp;
+	    temp = i;
+	    i = j;
+	    j = temp;
     }
     while(i<=j){
 	int original = i;
@@ -118,12 +110,12 @@ int collatz_eval (int i, int j, std::unordered_map<int,int>& map_cache) {
 	 	cycles++;
 	    }
 	    else{
-		int overflow = temp;
-		temp = (temp*3)+1;
-		if(overflow>temp){
-		    cout<< i << ",";
-		    return -1;
-		}
+		    int overflow = temp;
+		    temp = (temp*3)+1;
+		    if(overflow>temp){
+		        cout<< i << ",";
+		        return -1;
+		    }
 		cycles++;
 	    }}
 	    else{
@@ -160,23 +152,17 @@ void collatz_print (std::ostream& w, int i, int j, int v) {
 
 void collatz_solve (std::istream& r, std::ostream& w) {
     
-    time_t start;
-    time(&start);
     using namespace std;
     unordered_map<int,int> cache;
     while (true) {
         const std::pair<int, int> p = collatz_read(r);
         if (p == std::make_pair(0, 0)){
-	    time_t end;
-    	    time(&end);
-    	    cout<<difftime(end, start)<<endl;
             return;
 	}
-        const int i = p.first;
-        const int j = p.second;
-        //const int v = recurse_range(i, j,cache);
-        const int v = collatz_eval(i, j,cache);
-        if(v == -1)
-	    cout << "overflow in range " << i << " " << j << endl;
+    const int i = p.first;
+    const int j = p.second;
+    //const int v = recurse_range(i, j,cache);
+    const int v = collatz_eval(i, j,cache);
+
 	collatz_print(w, i, j, v);}
 }
