@@ -1,0 +1,107 @@
+commit 2dd512fce225cf2927fb33f030c010305382eb57
+Author: Andrew Huang <andrewhuang@utexas.edu>
+Date:   Wed Sep 10 23:51:00 2014 -0500
+
+    added UVaCollatz
+
+commit 1e79787fd02a25a7384f1d0666a6f97e6ba29c8c
+Author: Andrew Huang <andrewhuang@utexas.edu>
+Date:   Wed Sep 10 22:52:13 2014 -0500
+
+    added TestCollatz.out
+
+commit d3a893a206da825751b4defeceb0bbc2b267535d
+Author: Andrew Huang <andrewhuang@utexas.edu>
+Date:   Wed Sep 10 22:51:06 2014 -0500
+
+    added in and out files
+
+commit 0a6c920f7acf759c947a4cc97142e0585fbbc1ed
+Author: Andrew Huang <andrewhuang@utexas.edu>
+Date:   Tue Sep 9 23:08:01 2014 -0500
+
+    fixed generator for overflows
+
+commit 9d791cf3ba67a373b2f0989143f407bcaf7ade83
+Author: Andrew Huang <andrewhuang@utexas.edu>
+Date:   Tue Sep 9 23:07:26 2014 -0500
+
+    added j/2+1 optiization
+
+commit b2d7cee6d0db785c6b59acfe871844a9311db636
+Author: Andrew Huang <andrewhuang@utexas.edu>
+Date:   Tue Sep 9 23:07:00 2014 -0500
+
+    added recursive function
+
+commit 789aa0ecace06453f296631428b273865919435f
+Author: Andrew Huang <andrewhuang@utexas.edu>
+Date:   Mon Sep 8 16:25:53 2014 -0500
+
+    added test case generator
+
+commit 7af1fbdcdb9b6cd1b576df607c1b6b5b13e4beb1
+Author: Andrew Huang <andrewhuang@utexas.edu>
+Date:   Sun Sep 7 17:53:45 2014 -0500
+
+    made cache persistent
+
+commit 82133743828a56306b027116aa5e1fa977c13e1b
+Author: Andrew Huang <andrewhuang@utexas.edu>
+Date:   Thu Sep 4 12:58:43 2014 -0500
+
+    reimplement cache as unordered_map
+
+commit 884c5e3381f5120c7d0c65738db5d5d0dde9f219
+Author: Andrew Huang <andrewhuang@utexas.edu>
+Date:   Thu Sep 4 09:56:28 2014 -0500
+
+    fixed expected results
+
+commit e25d13e99e4e5ec06d7eb6ea0edd5e7909eeff04
+Author: Andrew Huang <andrewhuang@utexas.edu>
+Date:   Thu Sep 4 01:32:21 2014 -0500
+
+    fixed persistent cache issue
+
+commit 4b5220b5fadca848208fb32f8fd2e8be24eb3312
+Author: Andrew Huang <andrewhuang@utexas.edu>
+Date:   Thu Sep 4 01:25:26 2014 -0500
+
+    fixed segfault in 100 200
+
+commit c3a4dbd1ea8cfef8a2310b6c03307531d7c28933
+Author: Andrew Huang <andrewhuang@utexas.edu>
+Date:   Thu Sep 4 01:22:38 2014 -0500
+
+    cache works for 1 10
+
+commit 031d6558a30c61c9e5a0d43740a54fe9c2c2c667
+Author: Andrew Huang <andrewhuang@utexas.edu>
+Date:   Thu Sep 4 00:59:10 2014 -0500
+
+    added check for value to be in cache bounds
+
+commit 4c6854ad3bd9bd80557978c714d408480524f8f9
+Author: Andrew Huang <andrewhuang@utexas.edu>
+Date:   Thu Sep 4 00:47:28 2014 -0500
+
+    implement cache, but now bad output
+
+commit 9fac8d2f838d59d777f9ffd611d3a5e9301dd3db
+Author: Andrew Huang <andrewhuang@utexas.edu>
+Date:   Thu Sep 4 00:16:26 2014 -0500
+
+    working code, matches sample imput output
+
+commit d4bfd103ed3aab8402a695590a63944ba67b363e
+Author: Andrew Huang <andrewhuang@utexas.edu>
+Date:   Wed Sep 3 23:50:21 2014 -0500
+
+    added base files
+
+commit e0d0293b6d9deee562e8da7b17aa558796d11f96
+Author: aegix <andrewhuang@utexas.edu>
+Date:   Wed Sep 3 19:56:52 2014 -0500
+
+    Initial commit
