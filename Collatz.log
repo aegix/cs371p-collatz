@@ -1,3 +1,27 @@
+commit 78e2ee772e5e1c0f1afac11008c255d55bc8142c
+Author: Andrew Huang <andrewhuang@utexas.edu>
+Date:   Thu Sep 11 00:09:28 2014 -0500
+
+    added valgrind output to RunCollatz.out
+
+commit a1c7fb95507c7c6a5716a942456c6e8a6d74e880
+Author: Andrew Huang <andrewhuang@utexas.edu>
+Date:   Thu Sep 11 00:01:36 2014 -0500
+
+    added Doxygen output
+
+commit 467c35ba1abf249e9565a551acbcd6e5ad0caf6a
+Author: Andrew Huang <andrewhuang@utexas.edu>
+Date:   Thu Sep 11 00:00:57 2014 -0500
+
+    Cleaned up code
+
+commit bbbbcaf1761200af0a932da5aff1b8ef8d341923
+Author: Andrew Huang <andrewhuang@utexas.edu>
+Date:   Thu Sep 11 00:00:17 2014 -0500
+
+    added git log
+
 commit 2dd512fce225cf2927fb33f030c010305382eb57
 Author: Andrew Huang <andrewhuang@utexas.edu>
 Date:   Wed Sep 10 23:51:00 2014 -0500
